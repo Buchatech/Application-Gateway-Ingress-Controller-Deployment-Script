@@ -104,7 +104,7 @@ $kubeletidentityResourceID = (az aks show -g $ResourceGroupName -n $AKSClusterNa
 $kubeletidentityClientID = (az aks show -g $ResourceGroupName -n $AKSClusterName --query 'identityProfile.kubeletidentity.clientId' -o tsv)
 
 # Obtain the AKS Node Resource Group
-$AKSNodeRG = (az aks list --resource-group $ResourceGroupName --subscription H365 --query '[].nodeResourceGroup' -o tsv)
+$AKSNodeRG = (az aks list --resource-group $ResourceGroupName --subscription YOURSUBNAME --query '[].nodeResourceGroup' -o tsv)
 
 # Give the identity Contributor access to the Application Gateway
 az role assignment create --role Contributor --assignee $identityClientId --scope $AppgwID
